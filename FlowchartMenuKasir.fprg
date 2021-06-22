@@ -1,0 +1,200 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="ndejo"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2021-05-13 10:21:19 PM"/>
+        <attribute name="created" value="bmRlam87RklUUkFJTFlBU0E7MjAyMS0wNS0xMzswODoxNzowOSBQTTsyNjM2"/>
+        <attribute name="edited" value="bmRlam87RklUUkFJTFlBU0E7MjAyMS0wNS0xMzsxMDoyMToxOSBQTTsxOzI3MzM="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="fungsiLogin" type="String" array="False" size=""/>
+            <output expression="&quot;HALAMAN LOGIN KASIR&quot;" newline="True"/>
+            <declare name="username" type="String" array="False" size=""/>
+            <output expression="&quot;Username : &quot;" newline="True"/>
+            <input variable="username"/>
+            <declare name="password" type="String" array="False" size=""/>
+            <output expression="&quot;Password : &quot;" newline="True"/>
+            <input variable="password"/>
+            <if expression="username == &quot;admin&quot; &amp;&amp; password == &quot;adminpass&quot;">
+                <then>
+                    <output expression="&quot;Login Berhasil...&quot;" newline="True"/>
+                    <call expression="fungsiMenu"/>
+                </then>
+                <else>
+                    <output expression="&quot;Login Gagal, coba lagi...&quot;" newline="True"/>
+                    <call expression="fungsiLogin"/>
+                </else>
+            </if>
+            <declare name="fungsiMenu" type="Integer" array="False" size=""/>
+            <declare name="pilih" type="Integer" array="False" size=""/>
+            <output expression="&quot;Main Menu Aplikasi Kasir&quot;" newline="True"/>
+            <output expression="&quot;Selamat datang di aplikasi Kasir&quot;" newline="True"/>
+            <output expression="&quot;Menu Aplikasi&quot;" newline="True"/>
+            <output expression="&quot;1. Program Kasir&quot;" newline="True"/>
+            <output expression="&quot;2. Exit program&quot;" newline="True"/>
+            <if expression="pilih == 1">
+                <then>
+                    <call expression="fungsiKasir"/>
+                </then>
+                <else>
+                    <call expression="exit"/>
+                </else>
+            </if>
+            <declare name="fungsiKasir" type="String" array="False" size=""/>
+            <output expression="&quot;PT SAHABAT PANGAN SEJAHTERA&quot;" newline="True"/>
+            <output expression="&quot;|Nama Barang | Kode | Harga |&quot;" newline="True"/>
+            <output expression="&quot;|Cireng | CRG | 10000 |&quot;" newline="True"/>
+            <output expression="&quot;|Nuget | NGT | 15000 |&quot;" newline="True"/>
+            <output expression="&quot;|Baso Ayam | BSA | 15000 |&quot;" newline="True"/>
+            <output expression="&quot;|Baso Sapi | BSS | 20000 |&quot;" newline="True"/>
+            <output expression="" newline="True"/>
+            <declare name="listnama" type="String" array="False" size=""/>
+            <declare name="harga" type="Integer" array="False" size=""/>
+            <declare name="diskon" type="Integer" array="False" size=""/>
+            <declare name="totalharga" type="Integer" array="False" size=""/>
+            <declare name="pesan" type="String" array="False" size=""/>
+            <output expression="&quot;Kode Makanan (CGR/NGT/BSA/BBS/PPK) : &quot;" newline="True"/>
+            <input variable="pesan"/>
+            <output expression="&quot;Jumlah Beli : &quot;" newline="True"/>
+            <declare name="jumlahpesan" type="Integer" array="False" size=""/>
+            <input variable="jumlahpesan"/>
+            <if expression="pesan == &quot;CRG&quot;">
+                <then>
+                    <output expression="listnama = &quot;Cireng&quot;" newline="True"/>
+                    <output expression="harga = (10000*jumlahpesan)" newline="True"/>
+                    <if expression="jumlahpesan &gt;= 10">
+                        <then>
+                            <output expression="diskon = harga*0.2" newline="True"/>
+                            <output expression="totalharga = harga - diskon" newline="True"/>
+                        </then>
+                        <else>
+                            <output expression="diskon = 0" newline="True"/>
+                            <output expression="totalharga = harga" newline="True"/>
+                        </else>
+                    </if>
+                </then>
+                <else>
+                    <if expression="pesan == &quot;NGT&quot;">
+                        <then>
+                            <output expression="listnama = &quot;Nuget&quot;" newline="True"/>
+                            <output expression="harga = (15000*jumlahpesan)" newline="True"/>
+                            <if expression="jumlahpesan &gt;= 10">
+                                <then>
+                                    <output expression="diskon = harga*0.2" newline="True"/>
+                                    <output expression="totalharga = harga - diskon" newline="True"/>
+                                </then>
+                                <else>
+                                    <output expression="diskon = 0" newline="True"/>
+                                    <output expression="totalharga = harga" newline="True"/>
+                                </else>
+                            </if>
+                        </then>
+                        <else>
+                            <if expression="pesan == &quot;BSA&quot;">
+                                <then>
+                                    <output expression="listnama = &quot;Baso Ayam&quot;" newline="True"/>
+                                    <output expression="harga = (15000*jumlahpesan)" newline="True"/>
+                                    <if expression="jumlahpesan &gt;= 10">
+                                        <then>
+                                            <output expression="diskon = harga*0.2" newline="True"/>
+                                            <output expression="totalharga = harga - diskon" newline="True"/>
+                                        </then>
+                                        <else>
+                                            <output expression="diskon = 0" newline="True"/>
+                                            <output expression="totalharga = harga" newline="True"/>
+                                        </else>
+                                    </if>
+                                </then>
+                                <else>
+                                    <if expression="pesan == &quot;BSS&quot;">
+                                        <then>
+                                            <output expression="listnama = &quot;Baso Sapi&quot;" newline="True"/>
+                                            <output expression="harga = (20000*jumlahpesan)" newline="True"/>
+                                            <if expression="jumlahpesan &gt;= 10">
+                                                <then>
+                                                    <output expression="diskon = harga*0.2" newline="True"/>
+                                                    <output expression="totalharga = harga - diskon" newline="True"/>
+                                                </then>
+                                                <else>
+                                                    <output expression="diskon = 0" newline="True"/>
+                                                    <output expression="totalharga = harga" newline="True"/>
+                                                </else>
+                                            </if>
+                                        </then>
+                                        <else>
+                                            <if expression="pesan == &quot;PPK&quot;">
+                                                <then>
+                                                    <output expression="listnama = &quot;Pempek&quot;" newline="True"/>
+                                                    <output expression="harga = (10000*jumlahpesan)" newline="True"/>
+                                                    <if expression="jumlahpesan &gt;= 10">
+                                                        <then>
+                                                            <output expression="diskon = harga*0.2" newline="True"/>
+                                                            <output expression="totalharga = harga - diskon" newline="True"/>
+                                                        </then>
+                                                        <else>
+                                                            <output expression="diskon = 0" newline="True"/>
+                                                            <output expression="totalharga = harga" newline="True"/>
+                                                        </else>
+                                                    </if>
+                                                </then>
+                                                <else>
+                                                    <output expression="listnama = &quot;-&quot;" newline="True"/>
+                                                    <output expression="harga = &quot;-&quot;" newline="True"/>
+                                                    <output expression="diskon = &quot;-&quot;" newline="True"/>
+                                                    <output expression="totalharga = &quot;-&quot;" newline="True"/>
+                                                </else>
+                                            </if>
+                                        </else>
+                                    </if>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </else>
+            </if>
+            <output expression="&quot;Struk Pembelian&quot;" newline="True"/>
+            <output expression="&quot;Menu : &quot;" newline="True"/>
+            <output expression="listnama" newline="True"/>
+            <output expression="&quot;Jumlah Pesan : &quot;" newline="True"/>
+            <output expression="jumlahpesan" newline="True"/>
+            <output expression="&quot;Harga : &quot;" newline="True"/>
+            <output expression="harga" newline="True"/>
+            <output expression="&quot;Diskon : &quot;" newline="True"/>
+            <output expression="diskon" newline="True"/>
+            <output expression="&quot;Jumlah Bayar : &quot;" newline="True"/>
+            <output expression="totalharga" newline="True"/>
+            <if expression="tanyaKasir == &quot;y&quot;">
+                <then>
+                    <call expression="ulangKasir"/>
+                </then>
+                <else>
+                    <call expression="fungsiTanya"/>
+                </else>
+            </if>
+            <declare name="ulangKasir" type="String" array="False" size=""/>
+            <declare name="tanyaKasir" type="String" array="False" size=""/>
+            <output expression="&quot;Belanja lagi? (y/t)&quot;" newline="True"/>
+            <input variable="tanyaKasir"/>
+            <if expression="tanyaKasir == &quot;y&quot;">
+                <then/>
+                <else/>
+            </if>
+            <declare name="fungsiTanya" type="Integer" array="False" size=""/>
+            <declare name="tanya" type="String" array="False" size=""/>
+            <output expression="&quot;Kembali ke Menu? (y/t) &quot;" newline="True"/>
+            <input variable="tanya"/>
+            <if expression="tanya == &quot;y&quot;">
+                <then>
+                    <call expression="fungsiMenu"/>
+                </then>
+                <else>
+                    <call expression="exit"/>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>
